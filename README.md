@@ -122,7 +122,13 @@ With Power Platform anyone can build an application, so Santa Claus decided to g
 - Click on the **Run workflow** button and select the authentication method you want to use to connect to the environnement where you want to import the **ChristmasHub** solution
 - Follow the run and when it ends validate that the **ChristmasHub** solution has been correctly imported to your environment
 
-You should now be good to test the applications and reports the 7 bugs you should find 🎄
+### Finalize configurations and start testing
+
+- Open the **Christmas Hub** model driven app
+- Go to **Christmas Events** table view
+- Create a new **Christmas Event** with the name **2022**
+
+You should now be ready to test the applications and find the bugs Santa Claus let behind him 👍🏼
 
 ## ❗ Code of Conduct
 
