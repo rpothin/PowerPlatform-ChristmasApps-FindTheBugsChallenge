@@ -106,7 +106,7 @@ With Power Platform anyone can build an application, so Santa Claus decided to g
 
 | **Authentication method** | **Secrets to create** |
 | -- | -- |
-| Username - Password | DATAVERSE_ENVIRONMENT_URL <br> ... |
+| Username - Password | DATAVERSE_ENVIRONMENT_URL <br> USER_NAME <br> PASSWORD_SECRET |
 | Cliend ID - Secret | DATAVERSE_ENVIRONMENT_URL <br> TENANT_ID <br> APPLICATION_ID <br> CLIENT_SECRET |
 
 - Still in your forked repository, go the **Code** tab and press the `.` key to open the [**VS Code in the web experience**](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor)
