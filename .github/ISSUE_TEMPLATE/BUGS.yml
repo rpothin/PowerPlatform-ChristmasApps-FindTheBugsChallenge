@@ -1,0 +1,92 @@
+name: Bugs Report
+description: Report the bugs you found in the Power Platform apps built to manage Christmas
+title: "[Bugs] <Your name>"
+labels: [bug]
+assignees:
+  - rpothin
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to help Santa Claus save Christmas!
+        Merry Christmas to you and everyone around you! 🎄
+  - type: textarea
+    id: bug-1
+    attributes:
+      label: Bug 1 Description
+      description: Please, give us a good overview of the bug you found.
+      placeholder: "ex: When I click on Button A I get the following error message '...'"
+    validations:
+      required: true
+  - type: textarea
+    id: bug-2
+    attributes:
+      label: Bug 2 Description
+      description: Please, give us a good overview of the bug you found.
+      placeholder: "ex: When I click on Button A I get the following error message '...'"
+    validations:
+      required: true
+  - type: textarea
+    id: bug-3
+    attributes:
+      label: Bug 3 Description
+      description: Please, give us a good overview of the bug you found.
+      placeholder: "ex: When I click on Button A I get the following error message '...'"
+    validations:
+      required: true
+  - type: textarea
+    id: bug-4
+    attributes:
+      label: Bug 4 Description
+      description: Please, give us a good overview of the bug you found.
+      placeholder: "ex: When I click on Button A I get the following error message '...'"
+    validations:
+      required: true
+  - type: textarea
+    id: bug-5
+    attributes:
+      label: Bug 5 Description
+      description: Please, give us a good overview of the bug you found.
+      placeholder: "ex: When I click on Button A I get the following error message '...'"
+    validations:
+      required: true
+  - type: textarea
+    id: bug-6
+    attributes:
+      label: Bug 6 Description
+      description: Please, give us a good overview of the bug you found.
+      placeholder: "ex: When I click on Button A I get the following error message '...'"
+    validations:
+      required: true
+  - type: textarea
+    id: bug-7
+    attributes:
+      label: Bug 7 Description
+      description: Please, give us a good overview of the bug you found.
+      placeholder: "ex: When I click on Button A I get the following error message '...'"
+    validations:
+      required: true
+  - type: textarea
+    id: other-bugs
+    attributes:
+      label: Other Bugs Description
+      description: Please, give us a good overview of the other bugs you found.
+      placeholder: "ex: When I click on Button A I get the following error message '...'"
+    validations:
+      required: false
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info or if you become the winner of this challenge?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/rpothin/PowerPlatform-ChristmasApps-FindTheBugsChallenge/blob/main/CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
