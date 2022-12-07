@@ -59,9 +59,20 @@ With Power Platform anyone can build an application, so Santa Claus decided to g
 
 - As a Gift Distribution Coordinator, I want to be able to prepare the gifts to distribute to children in Santa's sleigh based on what have been assigned, to be sure all children will receive their gift for Christmas
 
-### 👀 Applications details
+### 👀 What's have been built
 
-...
+#### Applications
+
+- A model driven app for a centralized view of the data involved in the management of Christmas
+- A canvas app to allow the elves to update the stock of gifts from their mobile
+- A canvas app to follow the preparation of the gifts to deliver in Santa Claus' sleigh
+
+#### Automation
+
+- Processing of child birth events with the creation of records
+- Assignation of a random gift to a child for the upcoming Christmas
+- Mark the children's presents for a gift category as added to Santa Claus' sleigh
+- Deactivate children who became to old for this Christmas program
 
 ## 🗺 QuickStart Guide
 
