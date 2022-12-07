@@ -124,7 +124,10 @@ With Power Platform anyone can build an application, so Santa Claus decided to g
 
 ### Finalize configurations and start testing
 
-- Open the **Christmas Hub** model driven app
+- Open the [**Power Apps Maker portal**](https://make.powerapps.com/), and select the environment considered for your tests
+- Go to the **Solutions** page, and then open the **ChristmasHub** solution
+- Open the **Cloud Flows** page, and next turn on all the cloud flows
+- Go to list of the **Apps** and open the **Christmas Hub** model driven app
 - Go to **Christmas Events** table view
 - Create a new **Christmas Event** with the name **2022**
 
