@@ -69,7 +69,7 @@ With Power Platform anyone can build an application, so Santa Claus decided to g
 
 #### Automation
 
-- Processing of child birth events with the creation of records
+- Processing of child birth events with the creation of records + cloud flow to easily test this process
 - Assignation of a random gift to a child for the upcoming Christmas
 - Mark the children's presents for a gift category as added to Santa Claus' sleigh
 - Deactivate children who became to old for this Christmas program
@@ -81,7 +81,7 @@ With Power Platform anyone can build an application, so Santa Claus decided to g
 - A Github account
 
 > **Note**
-> If you don't have one, just to [GitHub sign up page](https://github.com/signup).
+> If you don't have one, just go to [GitHub sign up page](https://github.com/signup).
 
 - A Power Platform environment with Dataverse
 
@@ -121,6 +121,8 @@ With Power Platform anyone can build an application, so Santa Claus decided to g
 - Go to the **Actions** tab, then open the view on the **import-solution-to-dev** GitHub workflow
 - Click on the **Run workflow** button and select the authentication method you want to use to connect to the environnement where you want to import the **ChristmasHub** solution
 - Follow the run and when it ends validate that the **ChristmasHub** solution has been correctly imported to your environment
+
+You should now be good to test the applications and reports the 7 bugs you should find 🎄
 
 ## ❗ Code of Conduct
 
