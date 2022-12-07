@@ -78,7 +78,18 @@ With Power Platform anyone can build an application, so Santa Claus decided to g
 
 ### Prerequisites
 
-...
+- A Github account
+
+> **Note**
+> If you don't have one, just to [GitHub sign up page](https://github.com/signup).
+
+- A Power Platform environment with Dataverse
+
+> **Note**
+> To obtain a Power Platform environment with Dataverse you can follow one of the methods below:
+> - [From the Power Platform Administration Center](https://learn.microsoft.com/en-us/power-platform/admin/create-environment#create-an-environment-with-a-database)
+> - [Using the Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/reference/admin#pac-admin-create)
+> - [Starting free with a Power Apps Developer Plan](https://powerapps.microsoft.com/en-us/developerplan/)
 
 ### Deploy the ChristmasHub solution
 
@@ -106,10 +117,10 @@ With Power Platform anyone can build an application, so Santa Claus decided to g
 > **Note**
 > To get a connection ID, you can follow the [Get the connection reference information](https://learn.microsoft.com/en-us/power-platform/alm/conn-ref-env-variables-build-tools#get-the-connection-reference-information) from the Microsoft documentation.
 
-- Quit the [**VS Code in the web experience**](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor) and go back to your repository
+- Quit the [**VS Code in the web experience**](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor) and go back to your forked repository
 - Go to the **Actions** tab, then open the view on the **import-solution-to-dev** GitHub workflow
 - Click on the **Run workflow** button and select the authentication method you want to use to connect to the environnement where you want to import the **ChristmasHub** solution
-- Follow the run and at the end validate the **ChristmasHub** solution has been correctly imported to your environment
+- Follow the run and when it ends validate that the **ChristmasHub** solution has been correctly imported to your environment
 
 ## ❗ Code of Conduct
 
