@@ -9,6 +9,7 @@ body:
     attributes:
       value: |
         Thanks for taking the time to help Santa Claus save Christmas!
+        Merry Christmas to you and everyone around you! 🎄
   - type: textarea
     id: bug-1
     attributes:
