@@ -76,7 +76,40 @@ With Power Platform anyone can build an application, so Santa Claus decided to g
 
 ## 🗺 QuickStart Guide
 
+### Prerequisites
+
 ...
+
+### Deploy the ChristmasHub solution
+
+- Fork [this repository](https://github.com/rpothin/PowerPlatform-ChristmasApps-FindTheBugsChallenge)
+
+> **Info**
+> If you do not know how to do this, you can follow the [Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo) page of the GitHub documentation.
+
+- In your forked repository, go to the **Settings** tab, then open the **Secrets > Actions** section
+- Add the secrets below by clicking on the **New repository secret** green button
+
+> **Info**
+> The secrets to create will depend on the way you want to connect to the environnement where you want to import the **ChristmasHub** solution.
+
+| **Authentication method** | **Secrets to create** |
+| -- | -- |
+| Username - Password | DATAVERSE_ENVIRONMENT_URL <br> ... |
+| Cliend ID - Secret | DATAVERSE_ENVIRONMENT_URL <br> TENANT_ID <br> APPLICATION_ID <br> CLIENT_SECRET |
+
+- Still in your forked repository, go the **Code** tab and press the `.` key to open the [**VS Code in the web experience**](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor)
+- Open the [configurations/ChristmasHub/DeploymentSettings.json](./configurations/ChristmasHub/DeploymentSettings.json) file and set the elements below
+   - **rpo_MaximumChildAge** environment variable value (*ex: 18*)
+   - ID of a connection to the Microsoft Dataverse connector in your targeted environment in **rpo_sharedcommondataserviceforapps_c7914**
+
+> **Info**
+> To get a connection ID, you can follow the [Get the connection reference information](https://learn.microsoft.com/en-us/power-platform/alm/conn-ref-env-variables-build-tools#get-the-connection-reference-information) from the Microsoft documentation.
+
+- Quit the [**VS Code in the web experience**](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor) and go back to your repository
+- Go to the **Actions** tab, then open the view on the **import-solution-to-dev** GitHub workflow
+- Click on the **Run workflow** button and select the authentication method you want to use to connect to the environnement where you want to import the **ChristmasHub** solution
+- Follow the run and at the end validate the **ChristmasHub** solution has been correctly imported to your environment
 
 ## ❗ Code of Conduct
 
