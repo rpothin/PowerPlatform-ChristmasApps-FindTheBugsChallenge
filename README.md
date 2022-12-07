@@ -24,12 +24,21 @@
 </p>
 
 <h3 align="center">
-  <a href="https://github.com/rpothin/PowerPlatform-ChristmasApps-FindTheBugsChallenge/issues/new?assignees=rpothin&labels=bug%2Ctriage&template=BUG.yml&title=%5BBug%5D+%3CTitle%3E">Report the bugs</a>
+  <a href="https://github.com/rpothin/PowerPlatform-ChristmasApps-FindTheBugsChallenge/issues/new?assignees=rpothin&labels=bug&template=BUGS.yml&title=%5BBugs%5D+%3CYour+name%3E">Report the bugs</a>
 </h3>
 
 ## 🎄 The mission 🎄
 
-With Power Platform anyone can build an application, so Santa Claus decided to give it a try to help him manage Christmas. But unfortunately, he did not succeed in making it work, leaving 7 mistakes unresolved. Will you be able to find these mistakes and save Christmas?
+With Power Platform anyone can build an application, so Santa Claus decided to give it a try to help him manage Christmas. But unfortunately, he did not succeed in making it work, leaving 7 mistakes unresolved. **Will you be able to find these mistakes and save Christmas?**
+
+After testing the applications and finding the 7 bugs (or more 😅) you can just [Report the bugs](https://github.com/rpothin/PowerPlatform-ChristmasApps-FindTheBugsChallenge/issues/new?assignees=rpothin&labels=bug&template=BUGS.yml&title=%5BBugs%5D+%3CYour+name%3E).
+
+You have until **December, 22nd 2022** to submit your bugs report to this repository.
+
+The first one to find the 7 bugs will win this challenge.
+If at the end of the challenge no one found the 7 bugs, the one who found the most bugs first will win.
+
+The winner of this challenge will be eligible for a 1:1 call with [Raphael Pothin](https://twitter.com/RaphaelPothin) (me).
 
 ### 📖 Santa Claus' requirements
 
