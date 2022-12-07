@@ -4,6 +4,14 @@ name: import-solution-to-dev
 # Workflow triggered manually
 on:
   workflow_dispatch:
+    inputs:
+      authentication_method:
+        type: choice
+        description: 'Authentication method to connect to the environment for the import of the solution'
+        required: true
+        options:
+          - Username-Password
+          - ClientId-Secret
 
 # Environment variables
 env:
@@ -57,6 +65,24 @@ jobs:
       #   Microsoft action: https://github.com/microsoft/powerplatform-actions/blob/main/import-solution/action.yml
       - name: Import solution to Dev
         uses: microsoft/powerplatform-actions/import-solution@main
+        if: ${{ github.event.inputs.authentication_method == 'Username-Password' }}
+        with:
+          user-name: ${{ secrets.USER_NAME }}
+          password-secret: ${{ secrets.PASSWORD_SECRET }}
+          environment-url: ${{ secrets.DATAVERSE_ENVIRONMENT_URL }}
+          solution-file: out/unmanagedSolutions/${{ env.SOLUTION_NAME }}.zip
+          force-overwrite: false
+          publish-changes: true
+          skip-dependency-check: false
+          run-asynchronously: true
+          use-deployment-settings-file: true
+          deployment-settings-file: configurations/${{ env.SOLUTION_NAME }}/DeploymentSettings.json
+
+      # Import the considered solution to the targeted environment
+      #   Microsoft action: https://github.com/microsoft/powerplatform-actions/blob/main/import-solution/action.yml
+      - name: Import solution to Dev
+        uses: microsoft/powerplatform-actions/import-solution@main
+        if: ${{ github.event.inputs.authentication_method == 'ClientId-Secret' }}
         with:
           app-id: ${{ secrets.APPLICATION_ID }}
           client-secret: ${{ secrets.CLIENT_SECRET }}
