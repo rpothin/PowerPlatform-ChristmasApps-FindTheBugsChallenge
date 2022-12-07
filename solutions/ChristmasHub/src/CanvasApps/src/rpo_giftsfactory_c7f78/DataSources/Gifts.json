@@ -1,0 +1,104 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "rpo_gifts",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "rpo_gift",
+    "MaxGetRowsCount": 500,
+    "Name": "Gifts",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "rpo_description": "Description",
+      "rpo_gift_AsyncOperations": "System Jobs",
+      "rpo_gift_BulkDeleteFailures": "Bulk Delete Failures",
+      "rpo_gift_DuplicateBaseRecord": "Duplicate Records (rpo_gift_DuplicateBaseRecord)",
+      "rpo_gift_DuplicateMatchingRecord": "Duplicate Records (rpo_gift_DuplicateMatchingRecord)",
+      "rpo_gift_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "rpo_gift_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "rpo_gift_ProcessSession": "Process Sessions",
+      "rpo_gift_SyncErrors": "Sync Errors",
+      "rpo_giftid": "Gift",
+      "rpo_name": "Name",
+      "rpo_picture": "Picture",
+      "rpo_pictureid": "rpo_pictureId",
+      "rpo_quantity": "Quantity",
+      "rpo_quantityassignable": "Quantity Assignable",
+      "rpo_quantityassigned": "Quantity Assigned",
+      "rpo_rpo_childschristmaspresent_present_rpo_gi": "Children's Christmas Present",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Gifts",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Gifts (Views)",
+    "Name": "_rpo_gift_views",
+    "RelatedEntityName": "Gifts",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "0faedaf4-4d2b-4173-a183-dc9897b82707": "Active Gifts",
+      "2efa8ad3-73ce-4530-af09-2bace88c7ab5": "Inactive Gifts",
+      "69793476-7ce0-455b-8ab2-bdbdda4d6743": "Gift Lookup View",
+      "7ce7b521-8ce0-41d3-9219-f09a65779ba9": "Gift Advanced Find View",
+      "f0d06dbf-d18c-444f-9212-c44e44f4acc2": "Gift Associated View"
+    }
+  },
+  {
+    "DisplayName": "Status (Gifts)",
+    "Name": "rpo_gift_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Gifts"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Gifts",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Gifts)",
+    "Name": "rpo_gift_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Gifts"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Gifts",
+    "Type": "OptionSetInfo"
+  }
+]

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Workflow WorkflowId="{153c9623-4b74-ed11-81ac-000d3af3dd77}" Name="Mark children's presents for a gift category as added to Santa's sleigh" Description="Cloud flow called from a canvas app to set the status reason of children's presents of the considered gift category to &quot;Present in Santa's sleigh&quot;." xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <JsonFileName>/Workflows/MarkchildrenspresentsforagiftcategoryasaddedtoSant-153C9623-4B74-ED11-81AC-000D3AF3DD77.json</JsonFileName>
+  <Type>1</Type>
+  <Subprocess>0</Subprocess>
+  <Category>5</Category>
+  <Mode>0</Mode>
+  <Scope>4</Scope>
+  <OnDemand>0</OnDemand>
+  <TriggerOnCreate>0</TriggerOnCreate>
+  <TriggerOnDelete>0</TriggerOnDelete>
+  <AsyncAutodelete>0</AsyncAutodelete>
+  <SyncWorkflowLogOnFailure>0</SyncWorkflowLogOnFailure>
+  <StateCode>1</StateCode>
+  <StatusCode>2</StatusCode>
+  <RunAs>1</RunAs>
+  <IsTransacted>1</IsTransacted>
+  <IntroducedVersion>1.0.0</IntroducedVersion>
+  <IsCustomizable>1</IsCustomizable>
+  <BusinessProcessType>0</BusinessProcessType>
+  <IsCustomProcessingStepAllowedForOtherPublishers>1</IsCustomProcessingStepAllowedForOtherPublishers>
+  <PrimaryEntity>none</PrimaryEntity>
+  <LocalizedNames>
+    <LocalizedName languagecode="1033" description="Mark children's presents for a gift category as added to Santa's sleigh" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description languagecode="1033" description="Cloud flow called from a canvas app to set the status reason of children's presents of the considered gift category to &quot;Present in Santa's sleigh&quot;." />
+  </Descriptions>
+</Workflow>

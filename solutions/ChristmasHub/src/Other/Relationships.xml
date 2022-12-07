@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityRelationships xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <EntityRelationship Name="business_unit_rpo_childschristmaspresent" />
+  <EntityRelationship Name="business_unit_rpo_christmasevent" />
+  <EntityRelationship Name="business_unit_rpo_gift" />
+  <EntityRelationship Name="lk_rpo_childschristmaspresent_createdby" />
+  <EntityRelationship Name="lk_rpo_childschristmaspresent_modifiedby" />
+  <EntityRelationship Name="lk_rpo_christmasevent_createdby" />
+  <EntityRelationship Name="lk_rpo_christmasevent_modifiedby" />
+  <EntityRelationship Name="lk_rpo_gift_createdby" />
+  <EntityRelationship Name="lk_rpo_gift_modifiedby" />
+  <EntityRelationship Name="owner_rpo_childschristmaspresent" />
+  <EntityRelationship Name="owner_rpo_christmasevent" />
+  <EntityRelationship Name="owner_rpo_gift" />
+  <EntityRelationship Name="rpo_rpo_childschristmaspresent_child_contact" />
+  <EntityRelationship Name="rpo_rpo_childschristmaspresent_christmasevent" />
+  <EntityRelationship Name="rpo_rpo_childschristmaspresent_present_rpo_gi" />
+  <EntityRelationship Name="team_rpo_childschristmaspresent" />
+  <EntityRelationship Name="team_rpo_christmasevent" />
+  <EntityRelationship Name="team_rpo_gift" />
+  <EntityRelationship Name="user_rpo_childschristmaspresent" />
+  <EntityRelationship Name="user_rpo_christmasevent" />
+  <EntityRelationship Name="user_rpo_gift" />
+</EntityRelationships>

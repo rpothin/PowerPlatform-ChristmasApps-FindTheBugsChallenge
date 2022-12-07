@@ -1,0 +1,18 @@
+{
+  "QualifiedValues": [
+    {
+      "Kind": "default.cds_rpo_childschristmaspresent_forms",
+      "Namespace": "Children's Christmas Present (Forms)",
+      "Values": {
+        "Information": "63dfc725-2f07-492a-8a3c-b3b58c55c5ec"
+      }
+    },
+    {
+      "Kind": "default.cds_rpo_gift_forms",
+      "Namespace": "Gifts (Forms)",
+      "Values": {
+        "Information": "0bc5673a-d9ad-4bb4-af45-b97482f26150"
+      }
+    }
+  ]
+}

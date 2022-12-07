@@ -1,0 +1,14 @@
+<environmentvariabledefinition schemaname="rpo_MaximumChildAge">
+  <defaultvalue>18.00</defaultvalue>
+  <description default="Maximum child age considered for the program">
+    <label description="Maximum child age considered for the program" languagecode="1033" />
+  </description>
+  <displayname default="Maximum Child Age">
+    <label description="Maximum Child Age" languagecode="1033" />
+  </displayname>
+  <introducedversion>1.0.0</introducedversion>
+  <iscustomizable>1</iscustomizable>
+  <isrequired>0</isrequired>
+  <secretstore>0</secretstore>
+  <type>100000001</type>
+</environmentvariabledefinition>

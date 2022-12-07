@@ -1,0 +1,167 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "rpo_sharedcommondataserviceforapps_c7914"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "731c4b48-61b4-4495-88aa-f90a68c4b341"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "presentName",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Get_Gift_ID": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "4c61115a-d2c8-4052-bb3b-82c87e252ff4"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "rpo_gifts",
+              "$select": "rpo_giftid",
+              "$filter": "rpo_name eq '@{triggerBody()['text']}' and statecode eq 0"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "List_children's_presents_to_update": {
+          "runAfter": {
+            "Get_Gift_ID": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "af6c48ef-ce48-485b-8bd3-060b07b97e48"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "rpo_childschristmaspresents",
+              "$select": "rpo_childschristmaspresentid",
+              "$filter": "_rpo_present_value eq '@{first(outputs('Get_Gift_ID')?['body/value'])?['rpo_giftid']}' and statecode eq 0"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "For_each_child's_present": {
+          "foreach": "@outputs('List_children''s_presents_to_update')?['body/value']",
+          "actions": {
+            "Set_child_present_status_reason_to_\"Present_in_Santa's_sleigh\"": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "9bb78117-8ff9-4a1f-bd02-d4b4f63130e6"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "rpo_childschristmaspresents",
+                  "recordId": "@items('For_each_child''s_present')?['rpo_childschristmaspresentid']",
+                  "item/statuscode": 913610002
+                },
+                "authentication": "@parameters('$authentication')"
+              },
+              "description": "Status Reason eq 'Present in Santa's sleigh'"
+            }
+          },
+          "runAfter": {
+            "List_children's_presents_to_update": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0c0bd401-f9ae-4469-8daf-1c3dc60bf3ba"
+          },
+          "type": "Foreach"
+        },
+        "Respond_to_a_PowerApp_or_flow": {
+          "runAfter": {
+            "For_each_child's_present": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "555f8a8a-1910-490f-aa5a-9025c6e13d53"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "statusCode": 200,
+            "body": {
+              "status": "😁"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "title": "status",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "description": "Status eq Completed"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

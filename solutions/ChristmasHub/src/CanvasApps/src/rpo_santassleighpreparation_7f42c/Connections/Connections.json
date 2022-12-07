@@ -1,0 +1,70 @@
+{
+  "1713fe7e-4e0b-4eb2-90e7-4416a298aa77": {
+    "connectionParameters": {
+      "workFlowCallbackUri": "https://prod-20.canadacentral.logic.azure.com:443/workflows/7a3256a8620346ebadbfe285386b5bb7/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=5ptq5j-xJutG4io12uk519dtAlpsXhCSFabKQqXoGns",
+      "workflowEndpoint": "/subscriptions/e9bc7b8d-bb95-4e7a-baf8-230462d93177/resourceGroups/7e7df62f7cc44e63a250a277063e1be7-d5d23ade5db7ef5ab201875df593c1f1-env/providers/Microsoft.Logic/workflows/1946294d-417c-536c-a2ee-20ac0f26062c",
+      "workflowEntityId": "153c9623-4b74-ed11-81ac-000d3af3dd77",
+      "workflowName": "1946294d-417c-536c-a2ee-20ac0f26062c",
+      "workflowPath": "/subscriptions/e9bc7b8d-bb95-4e7a-baf8-230462d93177/resourceGroups/7e7df62f7cc44e63a250a277063e1be7-d5d23ade5db7ef5ab201875df593c1f1-env/providers/Microsoft.Logic/workflows/1946294d-417c-536c-a2ee-20ac0f26062c"
+    },
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1534/1.0.1534.2605/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "9526dbbe-4526-4adc-9520-9d317eecd353": {
+          "value": "shared_commondataserviceforapps"
+        },
+        "workflowEntityId": {
+          "value": "153c9623-4b74-ed11-81ac-000d3af3dd77"
+        },
+        "workflowName": {
+          "value": "1946294d-417c-536c-a2ee-20ac0f26062c"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_commondataserviceforapps": {
+          "value": "9526dbbe-4526-4adc-9520-9d317eecd353"
+        },
+        "workflowEntityId": {
+          "value": "153c9623-4b74-ed11-81ac-000d3af3dd77"
+        },
+        "workflowName": {
+          "value": "1946294d-417c-536c-a2ee-20ac0f26062c"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "Markchildren'spresentsforagiftcategoryasaddedtoSanta'ssleigh"
+    ],
+    "dependencies": {
+      "shared_commondataserviceforapps": "9526dbbe-4526-4adc-9520-9d317eecd353"
+    },
+    "dependents": [],
+    "id": "1713fe7e-4e0b-4eb2-90e7-4416a298aa77"
+  },
+  "9526dbbe-4526-4adc-9520-9d317eecd353": {
+    "connectionParameters": {
+      "sku": "Enterprise",
+      "token:grantType": "code"
+    },
+    "connectionRef": {
+      "apiTier": "Premium",
+      "bypassConsent": true,
+      "displayName": "Microsoft Dataverse",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/juanq/releases/v1.0.1609-localization/1.0.1609.3085/commondataserviceforapps/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_commondataserviceforapps",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "1713fe7e-4e0b-4eb2-90e7-4416a298aa77"
+    ],
+    "id": "9526dbbe-4526-4adc-9520-9d317eecd353"
+  }
+}

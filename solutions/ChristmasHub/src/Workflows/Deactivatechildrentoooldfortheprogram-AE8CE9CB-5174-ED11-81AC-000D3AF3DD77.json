@@ -1,0 +1,125 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "rpo_sharedcommondataserviceforapps_c7914"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "Maximum Child Age (rpo_MaximumChildAge)": {
+          "defaultValue": 18,
+          "type": "Int",
+          "metadata": {
+            "schemaName": "rpo_MaximumChildAge",
+            "description": "Maximum child age considered for the program"
+          }
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "startTime": "2022-12-04T07:00:00Z"
+          },
+          "metadata": {
+            "operationMetadataId": "d9cd0f78-9aae-41c9-9212-681fb4b36970"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "List_active_children": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "f7ccf06e-af61-4fdc-a189-e82bf0f25cb8"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "contacts",
+              "$select": "contactid, rpo_age",
+              "$filter": "statecode eq 0"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "List_active_children_too_old_for_the_program": {
+          "runAfter": {
+            "List_active_children": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d4d6c92e-2683-4897-8c6f-5b28e58d962e"
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@outputs('List_active_children')?['body/value']",
+            "where": "@greater(item()?['rpo_age'], parameters('Maximum Child Age (rpo_MaximumChildAge)'))"
+          }
+        },
+        "Apply_to_each_to_active_child_too_old_for_the_program": {
+          "foreach": "@outputs('List_active_children')?['body/value']",
+          "actions": {
+            "Set_child_status_to_\"Inactive\"": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "da15d4d2-194e-4eee-b85f-0504d6b83dfa"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "contacts",
+                  "recordId": "@item()?['contactid']",
+                  "item/statecode": 1,
+                  "item/statuscode": 2
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "List_active_children_too_old_for_the_program": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3314cfaf-b9e4-4d7a-8fb0-ac7d973e12a8"
+          },
+          "type": "Foreach",
+          "description": "Output from previous step considered for the apply to each operation: @{body('List_active_children_too_old_for_the_program')}"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

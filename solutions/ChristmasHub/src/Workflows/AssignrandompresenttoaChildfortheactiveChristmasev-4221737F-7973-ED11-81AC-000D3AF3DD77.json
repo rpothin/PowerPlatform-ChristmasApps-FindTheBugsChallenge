@@ -1,0 +1,316 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "rpo_sharedcommondataserviceforapps_c7914"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_row_status_reason_set_to_\"Present_to_assign\"": {
+          "metadata": {
+            "operationMetadataId": "59949340-67dc-4c17-866a-5b7732960f06"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "rpo_childschristmaspresent",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filterexpression": "statuscode eq 913610001",
+              "subscriptionRequest/runas": 3
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "List_active_Gifts": {
+          "runAfter": {
+            "Get_ID_of_cloud_flow's_owner": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "927beaa7-9b28-49ad-9991-94cf0b5bc7ce"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "rpo_gifts",
+              "$select": "rpo_quantityassignable, rpo_quantityassigned",
+              "$filter": "statecode eq 0"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Active_Gifts_with_Quantity_Assignable_greater_than_0": {
+          "runAfter": {
+            "List_active_Gifts": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "681b913b-ed08-4fb6-8f4a-82fb6e81051d"
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@outputs('List_active_Gifts')?['body/value']",
+            "where": "@greater(item()?['rpo_quantityassignable'], 0)"
+          }
+        },
+        "Condition_on_number_of_Gifts_available": {
+          "actions": {
+            "Randomly_selected_Gift": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "2092b17a-44ab-41d1-b300-2afdf9e09597"
+              },
+              "type": "ParseJson",
+              "inputs": {
+                "content": "@body('Active_Gifts_with_Quantity_Assignable_greater_than_0')[\r\n    rand(\r\n        0,\r\n        sub(\r\n            int(\r\n                length(body('Active_Gifts_with_Quantity_Assignable_greater_than_0'))\r\n            ),\r\n            1\r\n        )\r\n    )\r\n]",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "@@odata.type": {
+                      "type": "string"
+                    },
+                    "@@odata.id": {
+                      "type": "string"
+                    },
+                    "@@odata.etag": {
+                      "type": "string"
+                    },
+                    "@@odata.editLink": {
+                      "type": "string"
+                    },
+                    "rpo_quantityassignable@OData.Community.Display.V1.FormattedValue": {
+                      "type": "string"
+                    },
+                    "rpo_quantityassignable@odata.type": {
+                      "type": "string"
+                    },
+                    "rpo_quantityassignable": {
+                      "type": "integer"
+                    },
+                    "rpo_quantityassigned@OData.Community.Display.V1.FormattedValue": {
+                      "type": "string"
+                    },
+                    "rpo_quantityassigned": {
+                      "type": "integer"
+                    },
+                    "rpo_giftid@odata.type": {
+                      "type": "string"
+                    },
+                    "rpo_giftid": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "Add_randomly_selected_Gift_to_triggering_record": {
+              "runAfter": {
+                "Randomly_selected_Gift": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "d45a0800-27de-4c24-8bca-3c1b58ca0f0e"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "rpo_childschristmaspresents",
+                  "recordId": "@triggerOutputs()?['body/rpo_childschristmaspresentid']",
+                  "item/rpo_present@odata.bind": "/rpo_gifts(@{body('Randomly_selected_Gift')?['rpo_giftid']})",
+                  "item/statuscode": 913610002
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Increment_Quantity_Assigned_on_randomly_selected_Gift": {
+              "runAfter": {
+                "Add_randomly_selected_Gift_to_triggering_record": [
+                  "Failed"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "55732101-ef98-42a3-88b3-8c19e4cd34a7"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "rpo_gifts",
+                  "recordId": "@body('Randomly_selected_Gift')?['rpo_giftid']",
+                  "item/rpo_quantityassigned": "@add(\r\n    body('Randomly_selected_Gift')?['rpo_quantityassigned'],\r\n    1\r\n)"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Active_Gifts_with_Quantity_Assignable_greater_than_0": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Send_in-app_notification_to_user_for_\"No_Gift_available\"": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "5ede6e3e-d809-4fb2-ad40-5edd17b0560a"
+                },
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "connectionName": "shared_commondataserviceforapps",
+                    "operationId": "CreateRecord",
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                  },
+                  "parameters": {
+                    "entityName": "appnotifications",
+                    "item/title": "No Gift available 😱",
+                    "item/body": "No more Gifts available for assignation 😱",
+                    "item/icontype": 100000002,
+                    "item/ownerid@odata.bind": "/systemusers(@{first(outputs('Get_ID_of_cloud_flow''s_owner')?['body/value'])?['systemuserid']})",
+                    "item/priority": 200000000,
+                    "item/toasttype": 200000000
+                  },
+                  "authentication": "@parameters('$authentication')"
+                }
+              },
+              "Set_triggering_record_status_reason_to_\"Active\"_to_be_able_to_identify_it": {
+                "runAfter": {
+                  "Send_in-app_notification_to_user_for_\"No_Gift_available\"": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "d45a0800-27de-4c24-8bca-3c1b58ca0f0e"
+                },
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "connectionName": "shared_commondataserviceforapps",
+                    "operationId": "UpdateRecord",
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                  },
+                  "parameters": {
+                    "entityName": "rpo_childschristmaspresents",
+                    "recordId": "@triggerOutputs()?['body/rpo_childschristmaspresentid']",
+                    "item/statuscode": 1
+                  },
+                  "authentication": "@parameters('$authentication')"
+                }
+              }
+            }
+          },
+          "expression": {
+            "greater": [
+              "@length(body('Active_Gifts_with_Quantity_Assignable_greater_than_0'))",
+              0
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d7db5311-4ea9-48be-825b-c8f5356505bc"
+          },
+          "type": "If"
+        },
+        "Get_ID_of_cloud_flow's_owner": {
+          "runAfter": {
+            "Condition_on_\"Present\"_field_to_see_if_we_continue": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c6af8f72-4142-43a6-b54b-b1a804e3ecb4"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "systemusers",
+              "$select": "systemuserid",
+              "$filter": "azureactivedirectoryobjectid eq '@{triggerOutputs()?['headers/x-ms-client-request-id']}'"
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "description": "Filter rows: azureactivedirectoryobjectid eq '@{triggerOutputs()?['headers/x-ms-user-id']}'"
+        },
+        "Condition_on_\"Present\"_field_to_see_if_we_continue": {
+          "actions": {},
+          "runAfter": {},
+          "else": {
+            "actions": {
+              "Terminate_as_Cancelled_because_Present_already_assigned": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "0bad264c-cdd7-4947-871e-e31b2d45c5f5"
+                },
+                "type": "Terminate",
+                "inputs": {
+                  "runStatus": "Cancelled"
+                }
+              }
+            }
+          },
+          "expression": {
+            "equals": [
+              "@empty(triggerBody()?['entity']?['_rpo_present_value'])",
+              "@true"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a529da50-9c3f-4577-b1de-360db47a9709"
+          },
+          "type": "If"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

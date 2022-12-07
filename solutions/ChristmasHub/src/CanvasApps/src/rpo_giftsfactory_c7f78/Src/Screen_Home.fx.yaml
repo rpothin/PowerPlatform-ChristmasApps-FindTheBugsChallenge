@@ -1,0 +1,258 @@
+"Screen_Home As screen.'phoneLayout_HeaderAndGallery_ver3.0'":
+    Fill: =RGBA(234, 234, 234, 1)
+    LoadingSpinnerColor: =RGBA(164, 38, 44, 1)
+
+    Rectangle_HeaderBackground_Home As rectangle:
+        BorderColor: =RGBA(89, 0, 0, 1)
+        Fill: =RGBA(164, 38, 44, 1)
+        Height: =88
+        Width: =Parent.Width
+        ZIndex: =1
+
+    Label_ScreenTitle_Home As label:
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        Height: =88
+        Size: =27
+        Text: ="🎁 Gifts Factory"
+        Width: =Parent.Width - Label_ScreenTitle_Home.X - Icon_SortUpDown.Width - Icon_NewGift.Width - Icon_Refresh.Width
+        Wrap: =false
+        X: =20
+        ZIndex: =2
+
+    Icon_Refresh As icon.Reload:
+        AccessibleLabel: =Icon_Refresh.Tooltip
+        BorderColor: =RGBA(89, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =88
+        Icon: =Icon.Reload
+        OnSelect: =Refresh(Gifts)
+        PaddingBottom: =22
+        PaddingLeft: =22
+        PaddingRight: =22
+        PaddingTop: =22
+        PressedFill: =RGBA(255, 255, 255, 0.3)
+        TabIndex: =0
+        Tooltip: ="Refresh list"
+        Width: =88
+        X: =Parent.Width - Icon_NewGift.Width - Icon_SortUpDown.Width - Icon_Refresh.Width
+        ZIndex: =3
+
+    Icon_SortUpDown As icon.ArrowsUpDown:
+        AccessibleLabel: =Icon_SortUpDown.Tooltip
+        BorderColor: =RGBA(89, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =88
+        Icon: =Icon.Sort
+        OnSelect: |-
+            =UpdateContext({SortDescending: !SortDescending})
+        PaddingBottom: =26
+        PaddingLeft: =26
+        PaddingRight: =26
+        PaddingTop: =26
+        PressedFill: =RGBA(255, 255, 255, 0.3)
+        TabIndex: =0
+        Tooltip: =If(SortDescending, "Sort list in reverse alphabetical order", "Sort list in alphabetical order")
+        Width: =88
+        X: =Parent.Width - Icon_NewGift.Width - Icon_SortUpDown.Width
+        ZIndex: =4
+
+    Icon_NewGift As icon.Add:
+        AccessibleLabel: =Icon_NewGift.Tooltip
+        BorderColor: =RGBA(89, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =88
+        Icon: =Icon.Add
+        OnSelect: |-
+            =NewForm(Form_NewGift);
+            Navigate(Screen_NewGift, None);
+        PaddingBottom: =24
+        PaddingLeft: =24
+        PaddingRight: =24
+        PaddingTop: =24
+        PressedFill: =RGBA(255, 255, 255, 0.3)
+        TabIndex: =0
+        Tooltip: ="Create new item"
+        Width: =88
+        X: =Parent.Width - Icon_NewGift.Width
+        ZIndex: =5
+
+    Text_SearchBox As text:
+        Align: =Left
+        BorderColor: =RGBA(89, 0, 0, 1)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(0, 0, 0, 1)
+        Default: =""
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        FocusedBorderThickness: =4
+        Height: =68
+        HintText: ="Search items"
+        HoverBorderColor: =RGBA(89, 0, 0, 1)
+        HoverColor: =RGBA(0, 0, 0, 1)
+        HoverFill: =RGBA(222, 179, 184, 1)
+        PaddingLeft: =70
+        RadiusBottomLeft: =0
+        RadiusBottomRight: =7
+        RadiusTopLeft: =0
+        RadiusTopRight: =7
+        Size: =21
+        Width: =Parent.Width
+        Y: =Rectangle_HeaderBackground_Home.Height
+        ZIndex: =6
+
+    Icon_Search As icon.Search:
+        BorderColor: =RGBA(89, 0, 0, 1)
+        Color: =RGBA(89, 0, 0, 1)
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledColor: =RGBA(244, 244, 244, 1)
+        Height: =Icon_Search.Width
+        Icon: =Icon.Search
+        PaddingBottom: =14
+        PaddingLeft: =14
+        PaddingRight: =14
+        PaddingTop: =14
+        Tooltip: ="Search"
+        Width: =Text_SearchBox.Height
+        X: =Text_SearchBox.X
+        Y: =Text_SearchBox.Y
+        ZIndex: =7
+
+    Rectangle As rectangle:
+        BorderColor: =RGBA(89, 0, 0, 1)
+        Fill: =RGBA(89, 0, 0, 1)
+        Height: =2
+        Width: =Parent.Width
+        Y: =Text_SearchBox.Y + Text_SearchBox.Height
+        ZIndex: =8
+
+    "Gallery_Gifts As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver4.0'":
+        BorderColor: =RGBA(89, 0, 0, 1)
+        Height: =Parent.Height - Gallery_Gifts.Y
+        Items: |-
+            =SortByColumns(
+                Search(
+                    Filter(Gifts, 'Gifts (Views)'.'Active Gifts'),
+                    Text_SearchBox.Text, "rpo_name"
+                ),
+                "rpo_name",
+                If(SortDescending, Descending, Ascending)
+            )
+        Layout: =Layout.Vertical
+        ShowScrollbar: =false
+        TemplatePadding: =0
+        TemplateSize: =Min(160, Self.Height - 60)
+        Width: =Parent.Width
+        Y: =Text_SearchBox.Y + Text_SearchBox.Height
+        ZIndex: =9
+
+        GiftImage As image:
+            BorderColor: =RGBA(89, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            Height: =128
+            Image: =ThisItem.Picture
+            OnSelect: =Select(Parent)
+            Width: =128
+            X: =16
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =1
+
+        GiftName As label:
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FontWeight: =FontWeight.Semibold
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =20
+            Text: =ThisItem.Name
+            VerticalAlign: =VerticalAlign.Top
+            Width: =Parent.TemplateWidth - GiftImage.Width - 104
+            X: =GiftImage.X + GiftImage.Width + 24
+            Y: =44
+            ZIndex: =2
+
+        GiftsQuantity As label:
+            Color: =RGBA(0, 0, 0, 1)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            Height: =Self.Size * 1.8
+            OnSelect: =Select(Parent)
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Size: =18
+            Text: =ThisItem.Quantity
+            VerticalAlign: =VerticalAlign.Top
+            Width: =GiftName.Width
+            X: =GiftName.X
+            Y: =GiftName.Y + GiftName.Height + 4
+            ZIndex: =3
+
+        Icon_AddItem As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =RGBA(89, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =60
+            Icon: =Icon.Add
+            OnSelect: |-
+                =UpdateContext({ NewGiftQuantity: Parent.Selected.Quantity - 1 });
+                Patch(Gifts, Parent.Selected, { Quantity: NewGiftQuantity });
+                Refresh(Gifts);
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator As rectangle:
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Fill: =RGBA(89, 0, 0, 1)
+            Height: =1
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - 1
+            ZIndex: =5
+
+        Icon_RemoveItem As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            BorderColor: =RGBA(89, 0, 0, 1)
+            Color: =RGBA(89, 0, 0, 1)
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =60
+            Icon: =Icon.HorizontalLine
+            OnSelect: |-
+                =UpdateContext({ NewGiftQuantity: Parent.Selected.Quantity + 1 });
+                Patch(Gifts, Parent.Selected, { Quantity: NewGiftQuantity });
+                Refresh(Gifts);
+            PaddingBottom: =10
+            PaddingLeft: =10
+            PaddingRight: =10
+            PaddingTop: =10
+            TabIndex: =0
+            Tooltip: ="View item details"
+            Width: =60
+            X: =Parent.TemplateWidth - Self.Width - 5
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =6
+

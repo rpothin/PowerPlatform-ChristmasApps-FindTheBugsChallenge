@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "bdb26804-7c37-47b8-80eb-ea885ed53fad",
+    "Name": "Markchildren'spresentsforagiftcategoryasaddedtoSanta'ssleigh",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "153c9623-4b74-ed11-81ac-000d3af3dd77"
+  }
+]

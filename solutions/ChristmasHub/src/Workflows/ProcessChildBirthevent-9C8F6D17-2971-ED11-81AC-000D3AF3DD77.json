@@ -1,0 +1,130 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "rpo_sharedcommondataserviceforapps_c7914"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_Child_Birth_event_is_received": {
+          "metadata": {
+            "operationMetadataId": "ff42ad31-37b9-46ac-8da5-107bccc0f87a"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "BusinessEventsTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "catalog": "rpo_ChristmasManagement",
+              "category": "rpo_ChildManagement",
+              "subscriptionRequest/entityname": "none",
+              "subscriptionRequest/sdkmessagename": "rpo_onChildBirth"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Add_a_new_Child": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "ae1c8053-30c6-4848-9b3a-77d445669b6e"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "CreateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "contacts",
+              "item/lastname": "@triggerOutputs()?['body/InputParameters/LastName']",
+              "item/address1_city": "@triggerOutputs()?['body/InputParameters/AddressCity']",
+              "item/address1_country": "@triggerOutputs()?['body/InputParameters/AddressCountry']",
+              "item/address1_stateorprovince": "@triggerOutputs()?['body/InputParameters/AddressStateProvince']",
+              "item/address1_line1": "@triggerOutputs()?['body/InputParameters/AddressStreet']",
+              "item/address1_postalcode": "@triggerOutputs()?['body/InputParameters/AddressZipPostalCode']",
+              "item/birthdate": "@triggerOutputs()?['body/InputParameters/BirthDate']",
+              "item/firstname": "@triggerOutputs()?['body/InputParameters/FirstName']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "List_active_Christmas_Events": {
+          "runAfter": {
+            "Add_a_new_Child": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "5fe1342f-65f2-44f9-944f-75d4177b4f5d"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "rpo_christmasevents",
+              "$select": "rpo_year",
+              "$filter": "statecode eq 1"
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "description": "Filter rows: statecode eq 0"
+        },
+        "Add_a_new_line_for_the_Child_Christmas_present": {
+          "runAfter": {
+            "List_active_Christmas_Events": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0daea962-9084-4d7b-89e9-9325d8279c96"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "CreateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "rpo_childschristmaspresents",
+              "item/rpo_child@odata.bind": "/contacts(@{outputs('Add_a_new_Child')?['body/contactid']})",
+              "item/rpo_christmasevent@odata.bind": "/rpo_christmasevents(@{first(outputs('List_active_Christmas_Events')?['body/value'])?['rpo_christmaseventid']})"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

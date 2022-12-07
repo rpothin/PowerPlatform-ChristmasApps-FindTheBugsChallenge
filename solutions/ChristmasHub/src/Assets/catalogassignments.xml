@@ -1,0 +1,6 @@
+<catalogassignments>
+  <catalogassignment catalogid.uniquename="rpo_ChildManagement" object.uniquename="rpo_onChildBirth" objectidtype="customapi">
+    <iscustomizable>1</iscustomizable>
+    <name>On Child Birth</name>
+  </catalogassignment>
+</catalogassignments>

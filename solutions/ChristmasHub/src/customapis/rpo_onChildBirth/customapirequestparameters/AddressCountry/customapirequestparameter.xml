@@ -1,0 +1,12 @@
+<customapirequestparameter uniquename="AddressCountry">
+  <description default="Address Country">
+    <label description="Address Country" languagecode="1033" />
+  </description>
+  <displayname default="Address Country">
+    <label description="Address Country" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isoptional>0</isoptional>
+  <name>AddressCountry</name>
+  <type>10</type>
+</customapirequestparameter>

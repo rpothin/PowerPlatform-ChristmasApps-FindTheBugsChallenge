@@ -1,0 +1,97 @@
+{
+  "ComponentIndexes": {},
+  "ControlUniqueGuids": {},
+  "ControlUniqueIds": {
+    "App": 1,
+    "Gallery_GiftsChecklist": 11,
+    "galleryTemplate1": 12,
+    "Icon_Check": 14,
+    "Icon_Help": 6,
+    "Icon_Refresh": 7,
+    "Icon_Search": 10,
+    "Icon_SortUpDown": 8,
+    "Label_ScreenTitle": 5,
+    "Rectangle": 17,
+    "Rectangle_HeaderBackground": 4,
+    "Screen_Home": 3,
+    "Separator1": 16,
+    "Subtitle1": 15,
+    "Text_SearchBox": 9,
+    "Title1": 13
+  },
+  "FunctionParamsInvariantScripts": {},
+  "FunctionParamsInvariantScriptsOnInstances": {},
+  "HeaderLastSavedDateTimeUTC": "12/06/2022 03:38:00",
+  "IsLegacyComponentAllowGlobalScopeCase": false,
+  "LocalConnectionIDReferences": {
+    "1713fe7e-4e0b-4eb2-90e7-4416a298aa77": "\"/providers/microsoft.powerapps/apis/shared_logicflows/connections/1946294d417c536ca2ee20ac0f26062c-91dd19eb7bb3a626\"",
+    "9526dbbe-4526-4adc-9520-9d317eecd353": "\"/providers/microsoft.powerapps/apis/shared_commondataserviceforapps/connections/shared-commondataser-f696ae65-f177-41b5-8a54-7f5d52895333\""
+  },
+  "LocalDatabaseReferencesAsEmpty": false,
+  "LocalResourceFileNames": {},
+  "LocalResourceRootPaths": {},
+  "OldLogoFileName": "xukoqohn.jpg",
+  "OrderComponentMetadata": {},
+  "OrderComponentTemplate": {},
+  "OrderDataSource": {
+    "Children's Christmas Present": 8,
+    "Children's Christmas Present\\default.cds_rpo_childschristmaspresent_views": 5,
+    "Children's Christmas Present\\rpo_childschristmaspresent_statecode": 1,
+    "Children's Christmas Present\\rpo_childschristmaspresent_statuscode": 2,
+    "CustomGallerySample": 7,
+    "Gifts": 9,
+    "Gifts\\default.cds_rpo_gift_views": 6,
+    "Gifts\\rpo_gift_statecode": 3,
+    "Gifts\\rpo_gift_statuscode": 4,
+    "giftsToCheck": 10,
+    "Markchildren'spresentsforagiftcategoryasaddedtoSanta'ssleigh": 0
+  },
+  "OrderGroupControls": {},
+  "OrderPcfTemplate": {},
+  "OrderTemplate": {},
+  "OrderXMLTemplate": {
+    "gallery": 4,
+    "icon": 2,
+    "label": 1,
+    "rectangle": 0,
+    "text": 3
+  },
+  "PublishOrderIndices": {
+    "App": 0,
+    "Gallery_GiftsChecklist": 7,
+    "galleryTemplate1": 8,
+    "Icon_Check": 10,
+    "Icon_Help": 2,
+    "Icon_Refresh": 3,
+    "Icon_Search": 6,
+    "Icon_SortUpDown": 4,
+    "Label_ScreenTitle": 1,
+    "Rectangle": 13,
+    "Rectangle_HeaderBackground": 0,
+    "Screen_Home": 0,
+    "Separator1": 12,
+    "Subtitle1": 11,
+    "Text_SearchBox": 5,
+    "Title1": 9
+  },
+  "ResourcesJsonIndices": {
+    "Image-SampleImage": 0
+  },
+  "RuleScreenIdWithoutScreen": {},
+  "TemplateVersions": {},
+  "VolatileProperties": {
+    "AnalysisLoadTime": 0.22874720000000001,
+    "ControlCount": {
+      "gallery": 1,
+      "galleryTemplate": 1,
+      "icon": 5,
+      "label": 3,
+      "rectangle": 3,
+      "screen": 1,
+      "text": 1
+    },
+    "DeserializationLoadTime": 1.5968639,
+    "ErrorCount": 0
+  },
+  "WasLocalDatabaseReferencesEmpty": false
+}

@@ -1,0 +1,13 @@
+<catalog uniquename="rpo_ChildManagement">
+  <description default="Child Management catalog - category">
+    <label description="Child Management catalog - category" languagecode="1033" />
+  </description>
+  <displayname default="Child Management">
+    <label description="Child Management" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <name>rpo_ChildManagement</name>
+  <parentcatalogid>
+    <uniquename>rpo_ChristmasManagement</uniquename>
+  </parentcatalogid>
+</catalog>

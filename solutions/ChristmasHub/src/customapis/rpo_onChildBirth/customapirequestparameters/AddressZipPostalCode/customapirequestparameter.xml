@@ -1,0 +1,12 @@
+<customapirequestparameter uniquename="AddressZipPostalCode">
+  <description default="Address ZIP / Postal Code">
+    <label description="Address ZIP / Postal Code" languagecode="1033" />
+  </description>
+  <displayname default="Address ZIP / Postal Code">
+    <label description="Address ZIP / Postal Code" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isoptional>0</isoptional>
+  <name>AddressZipPostalCode</name>
+  <type>10</type>
+</customapirequestparameter>

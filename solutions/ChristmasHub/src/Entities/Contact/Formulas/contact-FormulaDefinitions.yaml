@@ -1,0 +1,11 @@
+rpo_age: |-
+    =Int(
+        RoundDown(
+            DateDiff(
+                birthdate,
+                UTCToday(),
+                TimeUnit.Months //Years
+            ),
+            0
+        )
+    )

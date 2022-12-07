@@ -1,0 +1,107 @@
+[
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "rpo_childschristmaspresents",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "rpo_childschristmaspresent",
+    "MaxGetRowsCount": 500,
+    "Name": "Children's Christmas Present",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "rpo_child": "Child",
+      "rpo_childschristmaspresent_AsyncOperations": "System Jobs",
+      "rpo_childschristmaspresent_BulkDeleteFailures": "Bulk Delete Failures",
+      "rpo_childschristmaspresent_DuplicateBaseRecord": "Duplicate Records (rpo_childschristmaspresent_DuplicateBaseRecord)",
+      "rpo_childschristmaspresent_DuplicateMatchingRecord": "Duplicate Records (rpo_childschristmaspresent_DuplicateMatchingRecord)",
+      "rpo_childschristmaspresent_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "rpo_childschristmaspresent_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "rpo_childschristmaspresent_ProcessSession": "Process Sessions",
+      "rpo_childschristmaspresent_SyncErrors": "Sync Errors",
+      "rpo_childschristmaspresentid": "Child's Christmas Present",
+      "rpo_christmasevent": "Christmas Event",
+      "rpo_id": "ID",
+      "rpo_present": "Present",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "Children's Christmas Present",
+    "Type": "NativeCDSDataSourceInfo"
+  },
+  {
+    "DisplayName": "Children's Christmas Present (Views)",
+    "Name": "_rpo_childschristmaspresent_views",
+    "RelatedEntityName": "Children's Christmas Present",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "5db4efef-4874-ed11-81ac-000d3af3dd77": "Active Children's Christmas Present with Present assigned",
+      "662a7ffc-6170-ed11-81ac-000d3af3dd77": "Christmas Event subgrid",
+      "7b7197e3-6170-ed11-81ac-000d3af3dd77": "Child subgrid",
+      "8660de5c-d4d4-44f0-b920-4620626dac57": "Child's Christmas Present Advanced Find View",
+      "cab8e785-2ddc-46e0-9d2d-77c5d9e71fde": "Inactive Children's Christmas Present",
+      "cdf33eaf-e084-4ae2-8b9e-a9aba9699338": "Child's Christmas Present Lookup View",
+      "d10f94e4-c453-40a8-8731-5a987bf2e717": "Child's Christmas Present Associated View",
+      "fc0bdee4-921a-4c84-a2b4-f74c55f5268e": "Active Children's Christmas Present"
+    }
+  },
+  {
+    "DisplayName": "Status (Children's Christmas Present)",
+    "Name": "rpo_childschristmaspresent_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "Children's Christmas Present"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "Children's Christmas Present",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (Children's Christmas Present)",
+    "Name": "rpo_childschristmaspresent_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive",
+      "913610001": "Present to assign",
+      "913610002": "Present assigned",
+      "913610003": "Present in Santa's sleigh",
+      "913610004": "Present delivered"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "Children's Christmas Present"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "Children's Christmas Present",
+    "Type": "OptionSetInfo"
+  }
+]

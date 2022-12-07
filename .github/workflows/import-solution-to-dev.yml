@@ -1,0 +1,71 @@
+name: import-solution-to-dev
+# Build and import "ChristmasHub" Dataverse solution as unmanaged to a Dev environment
+
+# Workflow triggered manually
+on:
+  workflow_dispatch:
+
+# Environment variables
+env:
+  SOLUTION_NAME: ChristmasHub
+
+jobs:
+  # Job to build the Dataverse solution
+  build-solution:
+    runs-on: ubuntu-latest
+    env:
+      RUNNER_DEBUG: 1
+
+    steps:
+      # Action used to checkout the branch which triggered the workflow in the current repository
+      #   Community action: https://github.com/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@v3.1.0
+
+      # Build Dataverse solution
+      - name: Build Dataverse solution
+        run: |
+          cd solutions/${{ env.SOLUTION_NAME }}
+          dotnet msbuild /t:build /restore
+        shell: pwsh
+
+      # Upload the unmanaged solution we got in the previous step to the GitHub artifact store
+      #   Action: https://docs.github.com/en/free-pro-team@latest/actions/guides/storing-workflow-data-as-artifacts
+      - name: Upload the ready to ship solution to GH artifact store
+        uses: actions/upload-artifact@v3
+        with:
+          name: unmanagedSolutions
+          path: solutions/${{ env.SOLUTION_NAME }}/bin/Debug/${{ env.SOLUTION_NAME }}.zip
+  
+  # Job to import the Dataverse solution to the Development environment
+  import-solution-to-dev:
+    needs: build-solution
+    runs-on: ubuntu-latest
+    env:
+      RUNNER_DEBUG: 1
+
+    steps:
+      # Get the content of the GitHub artifact store prepared in a previous job
+      #   Action: https://docs.github.com/en/free-pro-team@latest/actions/guides/storing-workflow-data-as-artifacts
+      - name: Get solution from GH artifact store
+        uses: actions/download-artifact@v3
+        with:
+          name: unmanagedSolutions
+          path: out/unmanagedSolutions/
+
+      # Import the considered solution to the targeted environment
+      #   Microsoft action: https://github.com/microsoft/powerplatform-actions/blob/main/import-solution/action.yml
+      - name: Import solution to Dev
+        uses: microsoft/powerplatform-actions/import-solution@main
+        with:
+          app-id: ${{ secrets.APPLICATION_ID }}
+          client-secret: ${{ secrets.CLIENT_SECRET }}
+          tenant-id: ${{ secrets.TENANT_ID }}
+          environment-url: ${{ secrets.DATAVERSE_ENVIRONMENT_URL }}
+          solution-file: out/unmanagedSolutions/${{ env.SOLUTION_NAME }}.zip
+          force-overwrite: false
+          publish-changes: true
+          skip-dependency-check: false
+          run-asynchronously: true
+          use-deployment-settings-file: true
+          deployment-settings-file: configurations/${{ env.SOLUTION_NAME }}/DeploymentSettings.json

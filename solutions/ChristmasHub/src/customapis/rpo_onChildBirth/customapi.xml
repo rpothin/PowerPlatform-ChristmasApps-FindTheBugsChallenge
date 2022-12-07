@@ -1,0 +1,15 @@
+<customapi uniquename="rpo_onChildBirth">
+  <allowedcustomprocessingsteptype>1</allowedcustomprocessingsteptype>
+  <bindingtype>0</bindingtype>
+  <description default="Endpoint to declare the birth of a child">
+    <label description="Endpoint to declare the birth of a child" languagecode="1033" />
+  </description>
+  <displayname default="On Child Birth">
+    <label description="On Child Birth" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isfunction>0</isfunction>
+  <isprivate>0</isprivate>
+  <name>rpo_onChildBirth</name>
+  <workflowsdkstepenabled>0</workflowsdkstepenabled>
+</customapi>

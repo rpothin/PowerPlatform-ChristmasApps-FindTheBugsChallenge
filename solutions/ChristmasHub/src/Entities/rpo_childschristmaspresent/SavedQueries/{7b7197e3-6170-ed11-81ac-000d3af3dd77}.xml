@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>0</isdefault>
+    <savedqueryid>{7b7197e3-6170-ed11-81ac-000d3af3dd77}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="rpo_id" select="1" icon="1" preview="1">
+        <row name="result" id="rpo_childschristmaspresentid">
+          <cell name="rpo_christmasevent" width="176" />
+          <cell name="rpo_present" width="257" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" output-format="xml-platform" mapping="logical">
+        <entity name="rpo_childschristmaspresent">
+          <attribute name="rpo_childschristmaspresentid" />
+          <attribute name="rpo_christmasevent" />
+          <attribute name="rpo_present" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Child subgrid" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

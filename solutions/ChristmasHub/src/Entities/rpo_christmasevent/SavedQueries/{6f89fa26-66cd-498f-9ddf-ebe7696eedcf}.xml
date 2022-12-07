@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{6f89fa26-66cd-498f-9ddf-ebe7696eedcf}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="rpo_year" select="1" icon="1" preview="1">
+        <row name="result" id="rpo_christmaseventid">
+          <cell name="rpo_year" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>1</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="rpo_christmasevent">
+          <attribute name="rpo_christmaseventid" />
+          <attribute name="rpo_year" />
+          <attribute name="createdon" />
+          <order attribute="rpo_year" descending="false" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Christmas Event Advanced Find View" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

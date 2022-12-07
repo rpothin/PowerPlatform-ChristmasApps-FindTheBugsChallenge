@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AppModule>
+  <UniqueName>rpo_ChristmasHub</UniqueName>
+  <IntroducedVersion>1.0.0</IntroducedVersion>
+  <WebResourceId>953b9fac-1e5e-e611-80d6-00155ded156f</WebResourceId>
+  <OptimizedFor></OptimizedFor>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+  <FormFactor>1</FormFactor>
+  <ClientType>4</ClientType>
+  <NavigationType>0</NavigationType>
+  <AppModuleComponents>
+    <AppModuleComponent type="1" schemaName="contact" />
+    <AppModuleComponent type="1" schemaName="rpo_childschristmaspresent" />
+    <AppModuleComponent type="1" schemaName="rpo_christmasevent" />
+    <AppModuleComponent type="1" schemaName="rpo_gift" />
+    <AppModuleComponent type="26" id="{8b99aa2f-5a70-ed11-81ac-000d3af3dd77}" />
+    <AppModuleComponent type="26" id="{efcb3753-5474-ed11-81ac-000d3af3dd77}" />
+    <AppModuleComponent type="26" id="{0faedaf4-4d2b-4173-a183-dc9897b82707}" />
+    <AppModuleComponent type="26" id="{2efa8ad3-73ce-4530-af09-2bace88c7ab5}" />
+    <AppModuleComponent type="26" id="{9ffd8c59-34fe-40ee-af3d-084ee44ec452}" />
+    <AppModuleComponent type="26" id="{59df81e2-a16e-4494-8de1-027d9c5ca31c}" />
+    <AppModuleComponent type="26" id="{fc0bdee4-921a-4c84-a2b4-f74c55f5268e}" />
+    <AppModuleComponent type="26" id="{cab8e785-2ddc-46e0-9d2d-77c5d9e71fde}" />
+    <AppModuleComponent type="60" id="{f74d8df8-5670-ed11-81ac-000d3af3dd77}" />
+    <AppModuleComponent type="60" id="{f0e0b777-5870-ed11-81ac-000d3af3dd77}" />
+    <AppModuleComponent type="60" id="{33057130-8e37-4406-a281-7c6004296d50}" />
+    <AppModuleComponent type="60" id="{8491e73f-968a-4f46-8235-47fca172527a}" />
+    <AppModuleComponent type="60" id="{354ea4bc-8521-4f16-ad10-881482d3cc47}" />
+    <AppModuleComponent type="62" schemaName="rpo_ChristmasHub" />
+  </AppModuleComponents>
+  <AppModuleRoleMaps>
+    <Role id="{627090ff-40a3-4053-8790-584edc5be201}" />
+    <Role id="{119f245c-3cc8-4b62-b31c-d1a046ced15d}" />
+  </AppModuleRoleMaps>
+  <LocalizedNames>
+    <LocalizedName description="Christmas Hub" languagecode="1033" />
+  </LocalizedNames>
+  <Descriptions>
+    <Description description="Core management application" languagecode="1033" />
+  </Descriptions>
+  <appsettings>
+    <appsetting settingdefinitionid.uniquename="AllowNotificationsEarlyAccess">
+      <iscustomizable>1</iscustomizable>
+      <value>true</value>
+    </appsetting>
+  </appsettings>
+</AppModule>

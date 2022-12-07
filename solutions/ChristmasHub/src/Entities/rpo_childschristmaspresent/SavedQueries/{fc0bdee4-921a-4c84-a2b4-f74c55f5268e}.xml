@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>0</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{fc0bdee4-921a-4c84-a2b4-f74c55f5268e}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="rpo_id" select="1" icon="1" preview="1">
+        <row name="result" id="rpo_childschristmaspresentid">
+          <cell name="rpo_id" width="191" />
+          <cell name="rpo_child" width="224" />
+          <cell name="rpo_present" width="213" />
+          <cell name="statuscode" width="188" />
+          <cell name="rpo_christmasevent" width="194" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>0</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="rpo_childschristmaspresent">
+          <attribute name="rpo_childschristmaspresentid" />
+          <attribute name="rpo_id" />
+          <order attribute="rpo_id" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <attribute name="rpo_child" />
+          <attribute name="rpo_present" />
+          <attribute name="rpo_christmasevent" />
+          <attribute name="statuscode" />
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Active Children's Christmas Present" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>

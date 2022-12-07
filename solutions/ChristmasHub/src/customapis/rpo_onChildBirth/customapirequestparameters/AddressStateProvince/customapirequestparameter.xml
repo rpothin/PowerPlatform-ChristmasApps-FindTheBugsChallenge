@@ -1,0 +1,12 @@
+<customapirequestparameter uniquename="AddressStateProvince">
+  <description default="Address State / Province">
+    <label description="Address State / Province" languagecode="1033" />
+  </description>
+  <displayname default="Address State / Province">
+    <label description="Address State / Province" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isoptional>0</isoptional>
+  <name>AddressStateProvince</name>
+  <type>10</type>
+</customapirequestparameter>

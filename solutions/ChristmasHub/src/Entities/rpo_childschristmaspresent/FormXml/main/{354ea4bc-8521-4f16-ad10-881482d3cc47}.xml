@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<forms xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <systemform>
+    <formid>{354ea4bc-8521-4f16-ad10-881482d3cc47}</formid>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <FormPresentation>1</FormPresentation>
+    <FormActivationState>1</FormActivationState>
+    <form headerdensity="HighWithControls">
+      <tabs>
+        <tab verticallayout="true" id="{f7a2635a-12a3-4207-9bd0-04bf94664e76}" IsUserDefined="1">
+          <labels>
+            <label description="General" languagecode="1033" />
+          </labels>
+          <columns>
+            <column width="100%">
+              <sections>
+                <section showlabel="false" showbar="false" IsUserDefined="0" id="{add58909-6cd7-4f48-862f-b14046b721c3}" columns="1">
+                  <labels>
+                    <label description="General" languagecode="1033" />
+                  </labels>
+                  <rows>
+                    <row>
+                      <cell id="{a2dc2108-6fd1-45a8-830b-c3d3b1e89949}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Child" languagecode="1033" />
+                        </labels>
+                        <control id="rpo_child" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="rpo_child" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{9fc10699-d4a4-4dc9-8a4d-e364437aca70}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Present" languagecode="1033" />
+                        </labels>
+                        <control id="rpo_present" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="rpo_present" disabled="false" />
+                      </cell>
+                    </row>
+                    <row>
+                      <cell id="{719906db-6648-4a41-984b-d33372cf0abd}" locklevel="0" colspan="1" rowspan="1">
+                        <labels>
+                          <label description="Christmas Event" languagecode="1033" />
+                        </labels>
+                        <control id="rpo_christmasevent" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="rpo_christmasevent" disabled="false" />
+                      </cell>
+                    </row>
+                  </rows>
+                </section>
+              </sections>
+            </column>
+          </columns>
+        </tab>
+      </tabs>
+      <header id="{3589551a-dcc3-43ee-a23c-9a6ed68d34d8}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{9c89fc44-f371-4af0-b367-f2755260922f}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d6422713-f369-47cd-b2ef-04629d807abf}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{e346f868-5571-40a3-a53b-6e70c4b65017}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{d3dc09eb-cc1b-4a8c-a466-81d45b2f101d}" colspan="1" rowspan="1">
+              <labels>
+                <label description="ID" languagecode="1033" />
+              </labels>
+              <control id="header_rpo_id" classid="{4273EDBD-AC1D-40d3-9FB2-095C621B552D}" datafieldname="rpo_id" />
+            </cell>
+            <cell id="{72eb712a-67dd-416e-a5d9-d9ce2ca5cd42}" locklevel="0" colspan="1" rowspan="1">
+              <labels>
+                <label description="Status Reason" languagecode="1033" />
+              </labels>
+              <control id="header_statuscode" classid="{3EF39988-22BB-4F0B-BBBE-64B5A3748AEE}" datafieldname="statuscode" disabled="false" />
+            </cell>
+            <cell id="{f61f48aa-3f6c-4925-938b-b1923697ad21}" colspan="1" rowspan="1">
+              <labels>
+                <label description="Owner" languagecode="1033" />
+              </labels>
+              <control id="header_ownerid" classid="{270BD3DB-D9AF-4782-9025-509E298DEC0A}" datafieldname="ownerid" />
+            </cell>
+          </row>
+        </rows>
+      </header>
+      <footer id="{34b6e351-13ef-4bb0-abca-d407809cf608}" celllabelposition="Top" columns="111" labelwidth="115" celllabelalignment="Left">
+        <rows>
+          <row>
+            <cell id="{b77a45b3-9d91-4943-9a24-5c51715ed9a4}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{8e1951fe-555c-4722-9c4b-4461b20d54f1}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+            <cell id="{a66b3b6f-6540-4313-aa49-4606ae33fbce}" showlabel="false">
+              <labels>
+                <label description="" languagecode="1033" />
+              </labels>
+            </cell>
+          </row>
+        </rows>
+      </footer>
+      <DisplayConditions Order="0" FallbackForm="true">
+        <Everyone />
+      </DisplayConditions>
+    </form>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>1</CanBeDeleted>
+    <LocalizedNames>
+      <LocalizedName description="Information" languagecode="1033" />
+    </LocalizedNames>
+    <Descriptions>
+      <Description description="A form for this entity." languagecode="1033" />
+    </Descriptions>
+  </systemform>
+</forms>

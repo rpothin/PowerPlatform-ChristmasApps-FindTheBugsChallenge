@@ -1,0 +1,12 @@
+<customapirequestparameter uniquename="FirstName">
+  <description default="First Name">
+    <label description="First Name" languagecode="1033" />
+  </description>
+  <displayname default="First Name">
+    <label description="First Name" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <isoptional>0</isoptional>
+  <name>FirstName</name>
+  <type>10</type>
+</customapirequestparameter>

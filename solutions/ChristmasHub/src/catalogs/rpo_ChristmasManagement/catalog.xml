@@ -1,0 +1,10 @@
+<catalog uniquename="rpo_ChristmasManagement">
+  <description default="Christmas management catalog - root">
+    <label description="Christmas management catalog - root" languagecode="1033" />
+  </description>
+  <displayname default="Christmas Management">
+    <label description="Christmas Management" languagecode="1033" />
+  </displayname>
+  <iscustomizable>1</iscustomizable>
+  <name>rpo_ChristmasManagement</name>
+</catalog>
