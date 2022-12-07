@@ -29,9 +29,41 @@
 
 ## 🎄 The mission 🎄
 
+With Power Platform anyone can build an application, so Santa Claus decided to give it a try to help him manage Christmas. But unfortunately, he did not succeed in making it work, leaving 7 mistakes unresolved. Will you be able to find these mistakes and save Christmas?
+
+### 📖 Santa Claus' requirements
+
+#### Gifts management
+
+- As an Elf, I want to be able to easily track my work (new gift type or add / remove items in the stock for a gift type) directly from the factory line on my mobile device, to give a better near realtime visibility on the gifts in stock
+
+- As a Gifts Manager, I want the gift's assigned quantity to be incremented when one item has been assigned to a child, to be able to correctly track the number of items still available
+
+- As  a Gifts Manager, I want to have a clear view on the gifts (quantity in stock, assigned and available for assignation), to better plan the gifts manufacturing
+
+#### Children management
+
+- As a Children Manager, I want to be able to receive child birth events and having them processed (creation of a record in the Contact table and a related record in the Children's Christmas Present table for the active Christmas Event), to quickly include new children in the Christmas program
+
+- As a Children Manager, I want to be able to quickly and easily identify the age of a child (rounded one year down), to better plan the type of gifts to manufacture
+
+- As a Children Manager, I want children reaching a configured age to be removed from the Christmas program, to be able to focus the effort on the children not the adults
+
+#### Gifts distribution preparation
+
+- As a Gift Distribution Coordinator, I want to be able to automatically assign a random gift to a child if we have some in stocks, to make this task easier
+
+- As a Gift Distribution Coordinator, I want to be able to get an in-app notification if there is no gift in stock for assignment to a child, to be able to react quickly.
+
+- As a Gift Distribution Coordinator, I want to be able to trigger the assignation of gifts to children when the stock has been refilled, to guarantee a gift for each child
+
+- As a Gift Distribution Coordinator, I want to be able to prepare the gifts to distribute to children in Santa's sleigh based on what have been assigned, to be sure all children will receive their gift for Christmas
+
+### 👀 Applications details
+
 ...
 
-## 📖 QuickStart Guide
+## 🗺 QuickStart Guide
 
 ...
 
