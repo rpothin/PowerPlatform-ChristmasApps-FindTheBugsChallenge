@@ -2,13 +2,13 @@
   "EnvironmentVariables": [
     {
       "SchemaName": "rpo_MaximumChildAge",
-      "Value": ""
+      "Value": "18"
     }
   ],
   "ConnectionReferences": [
     {
       "LogicalName": "rpo_sharedcommondataserviceforapps_c7914",
-      "ConnectionId": "",
+      "ConnectionId": "f4f82a86abd64f66ad9b8117b91dd0ad",
       "ConnectorId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
     }
   ]
