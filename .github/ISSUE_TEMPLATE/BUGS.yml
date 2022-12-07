@@ -1,7 +1,7 @@
 name: Bugs Report
 description: Report the bugs you found in the Power Platform apps built to manage Christmas
 title: "[Bugs] <Your name>"
-labels: [bug, triage]
+labels: [bug]
 assignees:
   - rpothin
 body:
