@@ -65,7 +65,7 @@ With Power Platform anyone can build an application, so Santa Claus decided to g
 
 - A model driven app for a centralized view of the data involved in the management of Christmas
 - A canvas app to allow the elves to update the stock of gifts from their mobile
-- A canvas app to follow the preparation of the gifts to deliver in Santa Claus' sleigh
+- A canvas app to follow the preparation of the gifts in Santa Claus' sleigh
 
 #### Automation
 
