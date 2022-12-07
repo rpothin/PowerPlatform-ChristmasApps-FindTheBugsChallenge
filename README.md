@@ -3,7 +3,7 @@
         Power Platform - Christmas Hub - Find the bugs challenge
     </h1>
     <h3 align="center">
-        Help Santa Claus find the bugs introduces into the Power Platform applications built to manage Christmas!
+        Help Santa Claus find the bugs introduced into the Power Platform applications built to manage Christmas!
     </h3>
 </p>
 
