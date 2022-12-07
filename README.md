@@ -1,6 +1,6 @@
 <p align="center">
     <h1 align="center">
-        Power Platform - Christmas Hub - Find the bugs challenge
+        Power Platform - Christmas Apps - Find the bugs challenge
     </h1>
     <h3 align="center">
         Help Santa Claus find the bugs introduced into the Power Platform applications built to manage Christmas!
@@ -8,23 +8,23 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/rpothin/PowerPlatform-ChristmasHub-FindTheBugsChallenge/blob/main/LICENSE" alt="Repository License">
-        <img src="https://img.shields.io/github/license/rpothin/PowerPlatform-ChristmasHub-FindTheBugsChallenge?color=yellow&label=License" /></a>
-    <a href="https://github.com/rpothin/PowerPlatform-ChristmasHub-FindTheBugsChallenge/issues" alt="Open Issues">
-        <img src="https://img.shields.io/github/issues-raw/rpothin/PowerPlatform-ChristmasHub-FindTheBugsChallenge?label=Open%20Issues" /></a>
+    <a href="https://github.com/rpothin/PowerPlatform-ChristmasApps-FindTheBugsChallenge/blob/main/LICENSE" alt="Repository License">
+        <img src="https://img.shields.io/github/license/rpothin/PowerPlatform-ChristmasApps-FindTheBugsChallenge?color=yellow&label=License" /></a>
+    <a href="https://github.com/rpothin/PowerPlatform-ChristmasApps-FindTheBugsChallenge/issues" alt="Open Issues">
+        <img src="https://img.shields.io/github/issues-raw/rpothin/PowerPlatform-ChristmasApps-FindTheBugsChallenge?label=Open%20Issues" /></a>
 </p>
 
 <p align="center">
     <a href="#watchers" alt="Watchers">
-        <img src="https://img.shields.io/github/watchers/rpothin/PowerPlatform-ChristmasHub-FindTheBugsChallenge?style=social" /></a>
+        <img src="https://img.shields.io/github/watchers/rpothin/PowerPlatform-ChristmasApps-FindTheBugsChallenge?style=social" /></a>
     <a href="#forks" alt="Forks">
-        <img src="https://img.shields.io/github/forks/rpothin/PowerPlatform-ChristmasHub-FindTheBugsChallenge?style=social" /></a>
+        <img src="https://img.shields.io/github/forks/rpothin/PowerPlatform-ChristmasApps-FindTheBugsChallenge?style=social" /></a>
     <a href="#stars" alt="Stars">
-        <img src="https://img.shields.io/github/stars/rpothin/PowerPlatform-ChristmasHub-FindTheBugsChallenge?style=social" /></a>
+        <img src="https://img.shields.io/github/stars/rpothin/PowerPlatform-ChristmasApps-FindTheBugsChallenge?style=social" /></a>
 </p>
 
 <h3 align="center">
-  <a href="https://github.com/rpothin/PowerPlatform-ChristmasHub-FindTheBugsChallenge/issues/new?assignees=rpothin&labels=bug%2Ctriage&template=BUG.yml&title=%5BBug%5D+%3CTitle%3E">Report the bugs</a>
+  <a href="https://github.com/rpothin/PowerPlatform-ChristmasApps-FindTheBugsChallenge/issues/new?assignees=rpothin&labels=bug%2Ctriage&template=BUG.yml&title=%5BBug%5D+%3CTitle%3E">Report the bugs</a>
 </h3>
 
 ## 🎄 The mission 🎄
