@@ -84,13 +84,13 @@ With Power Platform anyone can build an application, so Santa Claus decided to g
 
 - Fork [this repository](https://github.com/rpothin/PowerPlatform-ChristmasApps-FindTheBugsChallenge)
 
-> **Info**
+> **Note**
 > If you do not know how to do this, you can follow the [Fork a repo](https://docs.github.com/en/get-started/quickstart/fork-a-repo) page of the GitHub documentation.
 
 - In your forked repository, go to the **Settings** tab, then open the **Secrets > Actions** section
 - Add the secrets below by clicking on the **New repository secret** green button
 
-> **Info**
+> **Note**
 > The secrets to create will depend on the way you want to connect to the environnement where you want to import the **ChristmasHub** solution.
 
 | **Authentication method** | **Secrets to create** |
@@ -103,7 +103,7 @@ With Power Platform anyone can build an application, so Santa Claus decided to g
    - **rpo_MaximumChildAge** environment variable value (*ex: 18*)
    - ID of a connection to the Microsoft Dataverse connector in your targeted environment in **rpo_sharedcommondataserviceforapps_c7914**
 
-> **Info**
+> **Note**
 > To get a connection ID, you can follow the [Get the connection reference information](https://learn.microsoft.com/en-us/power-platform/alm/conn-ref-env-variables-build-tools#get-the-connection-reference-information) from the Microsoft documentation.
 
 - Quit the [**VS Code in the web experience**](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor) and go back to your repository
